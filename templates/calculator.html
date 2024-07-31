@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+    <h3 class="align-items-center">Calculator</h3>
+    <div class="row">
+        <div class="col-md-3">
+            <form method="post" action="">
+                {% csrf_token %}
+                <label for="text">Value1</label>
+                <input type="text" name="num1" class="form-control">
+                <br>
+                <select name="opr" id="" class="form-control">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+                <br>
+                <label for="">Value 2</label>
+                <input type="text" name="num2" class="form-control">
+                <br>
+                <button type="submit">Go</button>
+                <br>
+                <label for="" class="pt-4">Output</label>
+                <input type="text" value="{{output}}" name="output" class="form-control" >
+
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

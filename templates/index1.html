@@ -1,0 +1,65 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <p>{{h1}}</p>
+        {% for i in list %}
+        <h1>{{forloop.first}} {{i}}</h1>
+        {% endfor %}
+        <br>
+      
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+            </tr>
+            {% for j in std_d %}
+            <tr>
+                <td>{{j.name}}</td>
+                <td>{{j.phone}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% if numbers|length > 0 %}
+        {% for i in numbers %}
+            {% if i > 20 %}
+            <div>{{i}}</div>
+            {% endif %}
+        {% endfor %}
+
+        {% else %}
+           <div>no data</div>
+           {% endif %}
+
+           <div>
+            <div class="row">
+                <div class="col-6">
+                    <form method="post" action="{% url 'submitform'%}">
+                        {% csrf_token %}
+                        {% comment %} <div><label for="Value 1">Value1</label>
+                            <input type="text" name='num1' value="{{num1}}" class="form-control">
+                        </div>
+                        <div>
+                            <label for="value 2">Value2</label>
+                            <input type="text" name='num2' value="{{num2}}" class="form-control">
+                        </div> {% endcomment %}
+                        {{form}}
+                        <div>
+                            <button type="submit">Save</button>
+                        </div>
+                        <div><label for="Output"></label><input value="{{output}}" type="text" class="form-control"></div>
+
+                    </form>
+                </div>
+            </div>
+           </div>
+
+           <div>
+
+    </body>
+    
+    </html>
